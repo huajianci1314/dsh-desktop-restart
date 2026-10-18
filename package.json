@@ -1,0 +1,35 @@
+{
+  "name": "dsh-desktop-restart",
+  "version": "0.1.0",
+  "description": "在 DSH 桌面端左上角「编辑」菜单旁加一个「重启」按钮，一键重启整个 DeepSeek Harness。",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "desktop",
+    "restart"
+  ],
+  "license": "MIT",
+  "meta": {
+    "title": "Desktop Restart",
+    "description": "标题栏「编辑」旁的重启按钮：一键重启整个 DSH 桌面端。"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

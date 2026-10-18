@@ -1,0 +1,5 @@
+# dsh-desktop-restart bundle 层：把这个插件插入 profile 的配置树。
+# 行 id 固定，重复安装与 profile patch 都以它为目标。
+- insert:
+    - id: dsh-desktop-restart
+      name: dsh-desktop-restart

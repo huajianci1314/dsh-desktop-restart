@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    # 插件的辅助脚本与进程判定都是 Windows 专有的，所以只在 Windows 上跑。
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Syntax check
+        run: |
+          node --check src/index.js
+          node --check src/client.js
+          node --check src/inject.js
+
+      - name: Unit tests
+        run: |
+          node test/smoke.mjs
+          node test/host-guard.mjs
+          node test/script-smoke.mjs
+          node test/client-smoke.mjs
+          node test/client-failure.mjs
